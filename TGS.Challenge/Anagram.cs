@@ -30,8 +30,8 @@ namespace TGS.Challenge
         {
           throw new ArgumentException("word is null or empty");
         }
-        word1 = NormalizeString(word1.Replace("_", "").Replace("?", "").Replace("!", "").Replace(" ", ""));
-        word2 = NormalizeString(word2.Replace("_", "").Replace("?", "").Replace("!", "").Replace(" ", ""));
+        word1 = NormalizeString(word1);
+        word2 = NormalizeString(word2);
 
         word1 = SortString(word1);
         word2 = SortString(word2);
