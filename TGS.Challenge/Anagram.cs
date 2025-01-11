@@ -41,7 +41,7 @@ namespace TGS.Challenge
 
       private static string SortString(string word)
       {
-        char[] result = word.ToCharArray();
+        var result = word.ToCharArray();
         for (int i = 0; i < result.Length - 1; i++)
         {
           for (int j = 0; j < result.Length - i - 1; j++)
@@ -60,14 +60,20 @@ namespace TGS.Challenge
 
       private static string NormalizeString(string word)
       {
-        char[] result = new char[word.Length];
-        int index = 0;
+        // convert the word to a char array
+        var result = word.ToCharArray();
+        
+        // initialize the index
+        var index = 0;
 
-        foreach (char c in word)
+        // Loop through the characters in the string
+        foreach (var character in word)
         {
-          if (char.IsLetter(c))
+          // check if the character is a letter using char.Isletter
+          if (char.IsLetter(character))
           {
-            result[index++] = char.ToLower(c);
+            // increment the index of the char array and set the character to lowercase
+            result[index++] = char.ToLower(character);
           }
         }
         
