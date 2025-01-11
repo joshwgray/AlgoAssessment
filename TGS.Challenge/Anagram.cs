@@ -60,19 +60,13 @@ namespace TGS.Challenge
 
       private static string NormalizeString(string word)
       {
-        // convert the word to a char array
         var result = word.ToCharArray();
-        
-        // initialize the index
         var index = 0;
-
-        // Loop through the characters in the string
+        
         foreach (var character in word)
         {
-          // check if the character is a letter using char.Isletter
           if (char.IsLetter(character))
           {
-            // increment the index of the char array and set the character to lowercase
             result[index++] = char.ToLower(character);
           }
         }
