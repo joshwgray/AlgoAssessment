@@ -16,7 +16,43 @@ namespace TGS.Challenge
     {
         public int Count(string value)
         {
-            return -1;
+            if (string.IsNullOrWhiteSpace(value))
+            {
+                throw new ArgumentException("Value cannot be null or whitespace.", nameof(value));
+            }
+            
+            return GetVowelCount(value);
+        }
+
+        private int GetVowelCount(string value)
+        {
+            var word = value.ToLower().ToCharArray();
+            var vowelCount = 0;
+            
+            foreach (var character in word)
+            {
+                if (IsVowel(character))
+                {
+                    vowelCount += 1;
+                }
+            }
+
+            return vowelCount;
+        }
+
+        private bool IsVowel(char character)
+        {
+            bool isVowel = false;
+            var vowelArray = "aeiou".ToCharArray();
+            foreach (var vowel in vowelArray)
+            {
+                if (character == vowel)
+                {
+                    isVowel = true;
+                }
+            }
+
+            return isVowel;
         }
     }
 }
