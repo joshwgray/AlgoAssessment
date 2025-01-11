@@ -1,3 +1,5 @@
+using System;
+
 namespace TGS.Challenge;
 
 /*
@@ -21,6 +23,25 @@ public class Palindrome
 {
     public bool isPalindrome(string word)
     {
+        if (string.IsNullOrWhiteSpace(word))
+        {
+            throw new ArgumentException("Value cannot be null or whitespace.", nameof(word));
+        }
+
+        return IsPalindromeCheck(word);
+    }
+
+    private static bool IsPalindromeCheck(string word)
+    {
+        var value = word.ToCharArray();
+        Array.Reverse(value);
+        var reversedWord = new string(value);
+        
+        if (word == reversedWord)
+        {
+            return true;
+        }
+        
         return false;
     }
 }
