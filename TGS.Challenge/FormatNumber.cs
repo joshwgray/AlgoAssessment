@@ -26,7 +26,27 @@ namespace TGS.Challenge
     {
         public string Format(int value)
         {
-            return string.Empty;
+            if (value < 0 || value >= 1000000001)
+            {
+                throw new ArgumentOutOfRangeException(nameof(value));
+            }
+
+            var number = value.ToString();
+            var result = "";
+            int counter = 0;
+
+            for (int i = number.Length - 1; i >= 0; i--)
+            {
+                result = number[i] + result;
+                counter++;
+
+                if (counter % 3 == 0 && i != 0)
+                {
+                    result = "," + result;
+                }
+            }
+            
+            return result;
         }
     }
 }
